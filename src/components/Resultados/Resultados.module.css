@@ -1,0 +1,95 @@
+.secao {
+  background: var(--claro);
+  color: var(--texto-escuro);
+  padding: var(--secao-y) 0;
+}
+
+.container {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Cabeçalho ─────────────────────────────────────────────── */
+
+.cabecalho {
+  max-width: 40rem;
+  margin: 0 auto clamp(2.5rem, 7vw, 3.5rem);
+  text-align: center;
+}
+
+.rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #96793c; /* dourado escurecido para contraste AA sobre creme */
+  margin-bottom: 1rem;
+}
+
+/* Fios dourados nas laterais do rótulo. */
+.rotulo::before,
+.rotulo::after {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--dourado);
+}
+
+.titulo {
+  font-size: clamp(2.1rem, 8vw, 3.25rem);
+  margin-bottom: 1.1rem;
+}
+
+.enfase {
+  font-style: italic;
+  color: #96793c;
+}
+
+.subtitulo {
+  font-size: clamp(0.9375rem, 3vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--texto-escuro-2);
+}
+
+/* ── Grade de cards ────────────────────────────────────────── */
+
+.grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+/* ── Estados auxiliares ────────────────────────────────────── */
+
+.vazio {
+  padding: clamp(3rem, 10vw, 4.5rem) 1.5rem;
+  border: 1px dashed var(--dourado);
+  border-radius: var(--raio);
+  text-align: center;
+  color: var(--texto-escuro-2);
+}
+
+.aviso {
+  max-width: 40rem;
+  margin: clamp(2.25rem, 6vw, 3rem) auto 0;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: var(--texto-escuro-2);
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP
+   ══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 720px) {
+  .grade {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}

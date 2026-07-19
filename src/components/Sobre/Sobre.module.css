@@ -1,0 +1,107 @@
+.secao {
+  background: var(--carvao);
+  padding: var(--secao-y) 0;
+}
+
+.container {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.75rem, 8vw, 4rem);
+}
+
+/* ── Bloco de texto ────────────────────────────────────────── */
+
+.rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 1.15rem;
+}
+
+.rotulo::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+}
+
+.titulo {
+  font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+  color: var(--texto-claro);
+  margin-bottom: clamp(1.5rem, 5vw, 2rem);
+  max-width: 26ch;
+}
+
+.enfase {
+  font-style: italic;
+  color: var(--dourado-claro);
+}
+
+.corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  max-width: 40rem;
+  /* Fio dourado à esquerda: dá peso editorial sem pesar visualmente. */
+  padding-left: clamp(1.15rem, 4vw, 1.6rem);
+  border-left: 1px solid var(--carvao-2);
+}
+
+.corpo p {
+  font-size: clamp(0.9375rem, 3vw, 1.0625rem);
+  line-height: 1.75;
+  color: var(--texto-claro-2);
+}
+
+.corpo strong {
+  font-weight: 500;
+  color: var(--texto-claro);
+}
+
+/* ── Pilares ───────────────────────────────────────────────── */
+
+.pilares {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 5vw, 2rem);
+  list-style: none;
+}
+
+.pilar {
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--carvao-2);
+}
+
+.pilarTitulo {
+  font-family: var(--fonte-texto);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 0.6rem;
+}
+
+.pilarTexto {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--texto-claro-2);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP
+   ══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 860px) {
+  .pilares {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

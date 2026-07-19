@@ -1,0 +1,244 @@
+.hero {
+  position: relative;
+  background: var(--preto);
+  padding: clamp(2.5rem, 8vw, 4rem) 0 clamp(4rem, 10vw, 5rem);
+  overflow: hidden;
+}
+
+/* Brilho quente atrás do retrato — imita a luz de estúdio da foto. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    62% 50% at 78% 42%,
+    rgba(200, 169, 106, 0.13) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 7vw, 3rem);
+}
+
+/* ── Texto ─────────────────────────────────────────────────── */
+
+.sobrenome {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+.separador {
+  flex: 0 0 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.titulo {
+  font-size: clamp(2.6rem, 11vw, 4.6rem);
+  color: var(--texto-claro);
+  margin-bottom: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+/* Itálico dourado na palavra-chave: dá o acento sem gritar. */
+.enfase {
+  font-style: italic;
+  color: var(--dourado-claro);
+}
+
+.subtitulo {
+  font-size: clamp(1rem, 3.4vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--texto-claro-2);
+  max-width: 34rem;
+  margin-bottom: clamp(2rem, 6vw, 2.5rem);
+}
+
+.subtitulo strong {
+  font-weight: 500;
+  color: var(--texto-claro);
+}
+
+/* ── Botão principal ───────────────────────────────────────── */
+
+.botao {
+  display: block;
+  width: 100%;
+  padding: 1.15rem 2rem;
+  background: var(--dourado);
+  color: var(--preto);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  border-radius: var(--raio);
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.botao:hover {
+  background: var(--dourado-claro);
+}
+
+.botao:active {
+  transform: scale(0.985);
+}
+
+.provaRapida {
+  margin-top: 0.9rem;
+  font-size: 0.8125rem;
+  color: var(--texto-claro-2);
+  text-align: center;
+}
+
+/* ── Especialidades ────────────────────────────────────────── */
+
+.especialidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  margin-top: clamp(2rem, 6vw, 2.5rem);
+  padding-top: clamp(1.5rem, 5vw, 2rem);
+  border-top: 1px solid var(--carvao-2);
+}
+
+.especialidade {
+  position: relative;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-claro-2);
+}
+
+/* Losango dourado separando os itens (some no último). */
+.especialidade:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -0.85rem;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  background: var(--dourado);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ── Retrato ───────────────────────────────────────────────── */
+
+.moldura {
+  position: relative;
+  max-width: 22rem;
+  margin: 0 auto;
+  width: 84%;
+}
+
+.foto {
+  width: 100%;
+  height: auto;
+  /*
+    Dissolve as bordas da foto no fundo escuro. Como o retrato já foi feito
+    em fundo carvão, o resultado é a pessoa "flutuando" — sem recorte manual.
+  */
+  -webkit-mask-image: radial-gradient(
+    78% 78% at 50% 42%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(78% 78% at 50% 42%, #000 55%, transparent 100%);
+}
+
+/* ── Chamada para rolar ────────────────────────────────────── */
+
+.rolar {
+  display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP — duas colunas
+   ══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 860px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+    padding: 5rem 0 3rem;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+
+  .texto {
+    flex: 1 1 54%;
+  }
+
+  .botao {
+    display: inline-block;
+    width: auto;
+  }
+
+  .provaRapida {
+    text-align: left;
+    margin-left: 0.25rem;
+  }
+
+  .moldura {
+    flex: 1 1 46%;
+    width: auto;
+    max-width: 29rem;
+    margin: 0;
+  }
+
+  .rolar {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    align-self: center;
+    margin-top: 2.4rem;
+    /* padding leva o alvo de toque a 48px sem mudar o espaçamento visual. */
+    padding: 0.75rem 0.5rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--texto-claro-2);
+    transition: color var(--transicao);
+  }
+
+  .rolar:hover {
+    color: var(--dourado);
+  }
+
+  .rolar svg {
+    animation: descer 2.2s ease-in-out infinite;
+  }
+}
+
+@keyframes descer {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}

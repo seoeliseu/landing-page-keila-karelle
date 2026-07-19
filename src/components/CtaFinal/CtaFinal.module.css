@@ -1,0 +1,105 @@
+.secao {
+  position: relative;
+  background: var(--preto);
+  padding: var(--secao-y) 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Brilho dourado central — repete a luz do hero e fecha o círculo visual. */
+.secao::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    58% 62% at 50% 40%,
+    rgba(200, 169, 106, 0.14) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 1.15rem;
+}
+
+.rotulo::before,
+.rotulo::after {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+}
+
+.titulo {
+  font-size: clamp(2.1rem, 8vw, 3.25rem);
+  color: var(--texto-claro);
+  margin-bottom: 1.25rem;
+}
+
+.enfase {
+  font-style: italic;
+  color: var(--dourado-claro);
+}
+
+.subtitulo {
+  font-size: clamp(0.9375rem, 3vw, 1.0625rem);
+  line-height: 1.75;
+  color: var(--texto-claro-2);
+  max-width: 34rem;
+  margin: 0 auto clamp(2rem, 6vw, 2.5rem);
+}
+
+/* ── Botão ─────────────────────────────────────────────────── */
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 1.15rem 2rem;
+  background: var(--dourado);
+  color: var(--preto);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--raio);
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.botao:hover {
+  background: var(--dourado-claro);
+}
+
+.botao:active {
+  transform: scale(0.985);
+}
+
+.detalhe {
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  color: var(--texto-claro-2);
+}
+
+@media (min-width: 600px) {
+  .botao {
+    display: inline-flex;
+    width: auto;
+    padding-inline: 2.75rem;
+  }
+}

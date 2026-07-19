@@ -1,0 +1,35 @@
+# dependências
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+
+# produção
+*.tsbuildinfo
+
+# material de referência (fotos originais, prints, briefing)
+# não versionado a pedido — as fotos usadas no site ficam em /public/images
+/references
+
+# ambiente
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editores
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.swp

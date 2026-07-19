@@ -1,0 +1,105 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--claro-2);
+  border-radius: var(--raio);
+  overflow: hidden;
+  /* Sombra baixa e difusa — presença sem "caixa flutuante" de template. */
+  box-shadow: 0 1px 2px rgba(34, 29, 26, 0.04), 0 12px 32px -18px rgba(34, 29, 26, 0.22);
+  transition: box-shadow var(--transicao), transform var(--transicao);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1px 2px rgba(34, 29, 26, 0.05), 0 20px 44px -20px rgba(34, 29, 26, 0.3);
+  }
+}
+
+/* ── Moldura da imagem ─────────────────────────────────────── */
+
+.moldura {
+  position: relative;
+  width: 100%;
+  /* aspect-ratio vem inline, do data file — reserva o espaço e evita CLS. */
+  background: var(--claro-2);
+  overflow: hidden;
+}
+
+.imagem {
+  /*
+    `contain` em vez de `cover`: a foto de resultado nunca é cortada.
+    Se a proporção informada não bater com a real, sobra uma faixa creme
+    nas laterais, que funciona como passe-partout.
+  */
+  object-fit: contain;
+}
+
+/* ── Formato 'par': dois painéis lado a lado ───────────────── */
+
+.par {
+  display: grid;
+  /*
+    Sempre 2 colunas, inclusive no celular. Antes e depois PRECISAM ficar
+    lado a lado — empilhar destrói a comparação, que é o ponto da seção.
+  */
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--claro-2);
+}
+
+.painel {
+  position: relative;
+  background: #fff;
+}
+
+.rotulo {
+  position: absolute;
+  top: 0.625rem;
+  left: 0.625rem;
+  z-index: 2;
+  padding: 0.3rem 0.7rem;
+  background: rgba(20, 18, 17, 0.82);
+  color: var(--texto-claro);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--raio);
+  backdrop-filter: blur(4px);
+}
+
+/* O "depois" ganha o dourado — é o lado que interessa. */
+.rotuloDestaque {
+  background: var(--dourado);
+  color: var(--preto);
+}
+
+/* ── Legenda ───────────────────────────────────────────────── */
+
+.legenda {
+  padding: clamp(1.15rem, 4vw, 1.5rem);
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.etiqueta {
+  padding: 0.28rem 0.65rem;
+  border: 1px solid var(--dourado);
+  color: #96793c; /* dourado escurecido: contraste AA sobre fundo branco */
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--raio);
+}
+
+.descricao {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--texto-escuro-2);
+}

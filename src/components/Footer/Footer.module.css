@@ -1,0 +1,86 @@
+.rodape {
+  background: var(--carvao);
+  border-top: 1px solid var(--carvao-2);
+  padding: clamp(2.75rem, 8vw, 3.75rem) 0 2rem;
+  /* Espaço extra no mobile para o botão flutuante não cobrir os links. */
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+.container {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ── Marca ─────────────────────────────────────────────────── */
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--texto-claro);
+  letter-spacing: 0.01em;
+}
+
+.cargo {
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--texto-claro-2);
+}
+
+/* ── Links ─────────────────────────────────────────────────── */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  /* min-height 44px: mínimo confortável para toque no celular (WCAG 2.5.8). */
+  min-height: 44px;
+  padding: 0.35rem 0;
+  font-size: 0.9375rem;
+  color: var(--texto-claro-2);
+  transition: color var(--transicao);
+}
+
+.link:hover {
+  color: var(--dourado);
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+
+.base {
+  max-width: var(--largura-max);
+  margin: clamp(2rem, 6vw, 2.75rem) auto 0;
+  padding: 1.5rem var(--gutter) 0;
+  border-top: 1px solid var(--carvao-2);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--texto-claro-2);
+}
+
+.aviso {
+  margin-top: 0.6rem;
+  opacity: 0.75;
+}
+
+@media (min-width: 720px) {
+  .rodape {
+    padding-bottom: 2rem;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
