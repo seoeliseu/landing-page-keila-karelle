@@ -15,14 +15,15 @@ export default function CtaFinal() {
         <p className={styles.rotulo}>Próximo passo</p>
 
         <h2 className={styles.titulo}>
-          A sua transformação começa com uma{' '}
-          <em className={styles.enfase}>conversa</em>.
+          A sua nova relação com a sua pele pode começar{' '}
+          <em className={styles.enfase}>hoje</em>.
         </h2>
 
         <p className={styles.subtitulo}>
-          Me manda uma mensagem contando um pouco do seu caso. Eu te explico o que
-          dá para fazer, quantas sessões seriam necessárias e como funciona — sem
-          compromisso nenhum.
+          Se você convive com estrias e deseja entender quais resultados são
+          possíveis para o seu caso, fale comigo pelo WhatsApp. Vou avaliar sua
+          pele, explicar como funciona o protocolo, estimar a quantidade de sessões
+          e tirar todas as suas dúvidas, sem compromisso.
         </p>
 
         <a
@@ -34,7 +35,7 @@ export default function CtaFinal() {
           rel="noopener noreferrer"
         >
           <IconeWhatsapp />
-          Falar no WhatsApp
+          Quero conversar pelo WhatsApp
         </a>
 
         <p className={styles.detalhe}>Resposta no horário comercial · Goiânia – GO</p>

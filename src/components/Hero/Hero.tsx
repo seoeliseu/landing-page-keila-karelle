@@ -20,14 +20,15 @@ export default function Hero() {
           </p>
 
           <h1 className={styles.titulo}>
-            Sua pele, livre pra <em className={styles.enfase}>ser mostrada</em>.
+            Volte a vestir o que você ama.{' '}
+            <em className={styles.enfase}>Sem pensar nas estrias.</em>
           </h1>
 
           <p className={styles.subtitulo}>
-            Especialista em tratamento de estrias em Goiânia.{' '}
-            <strong>Método Regenerativo</strong> e <strong>Microderme</strong> para
-            atenuar estrias brancas e vermelhas — com resultados reais, de pessoas
-            reais.
+            Especialista em tratamento de estrias em Goiânia com o{' '}
+            <strong>Método Regenerativo Microderme</strong>. Recupere a confiança na
+            sua pele com um protocolo personalizado, desenvolvido para estimular a
+            regeneração natural e suavizar estrias brancas, vermelhas e arroxeadas.
           </p>
 
           <a
@@ -40,7 +41,7 @@ export default function Hero() {
           </a>
 
           <p className={styles.provaRapida}>
-            Atendimento individual · Avaliação sem compromisso
+            Atendimento individual • Avaliação sem compromisso
           </p>
 
           {/* Especialidades como tira discreta — não merecem seção própria. */}
@@ -55,15 +56,14 @@ export default function Hero() {
 
         <div className={styles.moldura}>
           {/*
-            O retrato já tem fundo carvão, igual ao fundo desta seção.
-            A máscara abaixo dissolve as bordas para a foto "flutuar" no fundo,
-            sem recorte e sem moldura visível.
+            Moldura com borda dourada e brilho suave, como um LED quente de
+            luz fraca ao redor do retrato de estúdio.
           */}
           <ImagemComFallback
-            src="/images/keila-perfil.jpg"
+            src="/images/keila-perfil-estudio.jpg"
             alt={`${site.nome}, especialista em tratamento de estrias em Goiânia`}
-            width={654}
-            height={786}
+            width={900}
+            height={1600}
             priority /* é o LCP: carrega primeiro, sem lazy loading */
             sizes="(max-width: 860px) 84vw, 460px"
             className={styles.foto}

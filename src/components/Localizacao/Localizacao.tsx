@@ -27,7 +27,8 @@ export default function Localizacao() {
           </h2>
 
           <address className={styles.endereco}>
-            <span className={styles.rua}>{endereco.rua}</span>
+            <span className={styles.rua}>{endereco.local}</span>
+            <span>{endereco.rua}</span>
             <span>{endereco.bairro}</span>
             <span>
               {endereco.cidadeUf} · CEP {endereco.cep}

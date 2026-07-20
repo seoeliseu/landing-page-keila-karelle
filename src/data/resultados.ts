@@ -36,14 +36,10 @@ type ResultadoBase = {
   /** Opcional. Permite separar resultados de estrias e de lábios no futuro. */
   categoria?: 'estrias' | 'labial'
   /**
-   * Opcional. Proporção da foto, no formato 'largura / altura'.
-   * A foto NUNCA é cortada — ela se encaixa inteira dentro dessa moldura.
-   * Se a proporção não bater, sobra uma faixa creme nas laterais (funciona
-   * como passe-partout de quadro, não fica feio).
-   *
-   * Para acertar em cheio: abra a foto, veja as dimensões em pixels e
-   * escreva aqui. Ex.: foto de 514x859 → proporcao: '514 / 859'.
-   * Se omitir, usa 3 / 4 (padrão vertical do Instagram).
+   * Opcional e SEM EFEITO hoje: a moldura do card é sempre quadrada, para
+   * todos os cards terem o mesmo tamanho. A foto aparece inteira dentro dela
+   * (sobra faixa creme quando a proporção não é quadrada — passe-partout).
+   * O campo fica registrado como documentação das dimensões reais do arquivo.
    */
   proporcao?: string
 }
@@ -68,10 +64,30 @@ export const resultados: Resultado[] = [
     formato: 'composta',
     imagem: '/images/resultados/estrias-braco-01.jpg',
     descricao:
-      'Estrias brancas na parte superior do braço. Textura da pele mais uniforme e marcas visivelmente mais suaves.',
+      'Estrias brancas na região superior do braço com melhora visível da textura, uniformidade da pele e suavização das marcas.',
     regiao: 'Braço',
     categoria: 'estrias',
     proporcao: '514 / 859', // dimensões reais desta foto
+  },
+  {
+    id: 'estrias-perna-01',
+    formato: 'composta',
+    imagem: '/images/resultados/estrias-perna-01.jpg',
+    descricao:
+      'Estrias brancas na perna com pele mais uniforme e marcas bem menos aparentes. Antes à esquerda, depois à direita.',
+    regiao: 'Perna',
+    categoria: 'estrias',
+    proporcao: '1320 / 1108', // dimensões reais desta foto
+  },
+  {
+    id: 'estrias-perna-02',
+    formato: 'composta',
+    imagem: '/images/resultados/estrias-perna-02.jpg',
+    descricao:
+      'Estrias e marcas na lateral da perna visivelmente mais suaves após o protocolo. Antes acima, depois abaixo.',
+    regiao: 'Perna',
+    categoria: 'estrias',
+    proporcao: '965 / 1106', // dimensões reais desta foto
   },
 
   // ─────────────────────────────────────────────────────────────────

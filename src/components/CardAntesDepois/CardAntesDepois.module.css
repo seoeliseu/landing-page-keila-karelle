@@ -1,4 +1,9 @@
 .card {
+  /* Coluna + altura total: todos os cards da fileira ficam do mesmo tamanho,
+     mesmo quando uma legenda tem mais linhas que a outra. */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: #fff;
   border: 1px solid var(--claro-2);
   border-radius: var(--raio);
@@ -20,7 +25,8 @@
 .moldura {
   position: relative;
   width: 100%;
-  /* aspect-ratio vem inline, do data file — reserva o espaço e evita CLS. */
+  /* Sempre quadrada: todos os cards ficam do mesmo tamanho na grade. */
+  aspect-ratio: 1 / 1;
   background: var(--claro-2);
   overflow: hidden;
 }
@@ -102,4 +108,15 @@
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--texto-escuro-2);
+}
+
+/* ── Botão que envolve a foto ──────────────────────────────── */
+
+.botaoFoto {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
 }

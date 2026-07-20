@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     'método regenerativo',
     'microderme',
     'micro labial natural',
-    'hydra collor',
+    'hydra color',
     'estrias brancas',
   ],
   authors: [{ name: site.nome }],
@@ -42,13 +42,15 @@ export const metadata: Metadata = {
     siteName: site.nome,
     title: site.seo.titulo,
     description: site.seo.descricao,
-    images: [{ url: '/images/keila-perfil.jpg', width: 654, height: 786, alt: site.nome }],
+    images: [
+      { url: '/images/keila-perfil-estudio.jpg', width: 900, height: 1600, alt: site.nome },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: site.seo.titulo,
     description: site.seo.descricao,
-    images: ['/images/keila-perfil.jpg'],
+    images: ['/images/keila-perfil-estudio.jpg'],
   },
   robots: { index: true, follow: true },
 }
@@ -69,7 +71,7 @@ const dadosEstruturados = {
   name: site.nome,
   description: site.seo.descricao,
   url: site.seo.url,
-  image: `${site.seo.url}/images/keila-perfil.jpg`,
+  image: `${site.seo.url}/images/keila-perfil-estudio.jpg`,
   telephone: `+${site.whatsapp}`,
   address: {
     '@type': 'PostalAddress',

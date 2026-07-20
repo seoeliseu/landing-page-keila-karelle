@@ -1,62 +1,73 @@
-import type { CSSProperties } from 'react'
+'use client'
+
 import ImagemComFallback from '@/components/ImagemComFallback/ImagemComFallback'
 import type { Resultado } from '@/data/resultados'
 import styles from './CardAntesDepois.module.css'
-
-/** Proporção usada quando o resultado não informa a dele (vertical do Instagram). */
-const PROPORCAO_PADRAO = '3 / 4'
 
 type Props = {
   resultado: Resultado
   /** O primeiro card da galeria carrega sem lazy — melhora o LCP da seção. */
   prioridade?: boolean
+  /**
+   * Chamado ao clicar na foto. O deslocamento identifica qual foto do card:
+   * 0 = imagem composta (ou "antes"), 1 = "depois" no formato par.
+   */
+  onAmpliar: (deslocamento: number) => void
 }
 
 /**
  * Card de antes e depois. Aceita os dois formatos de material:
  *
  * • 'composta' → uma imagem só, com antes/depois já montados dentro dela.
- *   Não escreve rótulo nenhum por cima, porque a imagem já traz os dela.
- *
  * • 'par' → duas fotos separadas. Monta lado a lado e escreve ANTES e DEPOIS.
  *
- * Em nenhum dos casos a foto é cortada (`object-fit: contain`): cortar uma
- * foto de resultado pode esconder justamente a parte tratada.
+ * A moldura é sempre quadrada, para todos os cards terem o mesmo tamanho na
+ * grade. A foto aparece inteira dentro dela (`object-fit: contain`) — cortar
+ * uma foto de resultado pode esconder justamente a parte tratada. O clique
+ * abre a galeria em tela cheia (controlada pelo componente pai).
  */
-export default function CardAntesDepois({ resultado, prioridade = false }: Props) {
+export default function CardAntesDepois({
+  resultado,
+  prioridade = false,
+  onAmpliar,
+}: Props) {
   const { descricao, regiao, sessoes } = resultado
-  const moldura: CSSProperties = {
-    aspectRatio: resultado.proporcao ?? PROPORCAO_PADRAO,
-  }
 
   return (
     <figure className={styles.card}>
       {resultado.formato === 'composta' ? (
-        <div className={styles.moldura} style={moldura}>
-          <ImagemComFallback
-            src={resultado.imagem}
-            alt={`Antes e depois do tratamento de estrias. ${descricao}`}
-            fill
-            sizes="(max-width: 720px) 92vw, (max-width: 1140px) 46vw, 520px"
-            className={styles.imagem}
-            priority={prioridade}
-          />
-        </div>
+        <button
+          type="button"
+          className={styles.botaoFoto}
+          onClick={() => onAmpliar(0)}
+          aria-label="Ampliar foto do resultado"
+        >
+          <div className={styles.moldura}>
+            <ImagemComFallback
+              src={resultado.imagem}
+              alt={`Antes e depois do tratamento de estrias. ${descricao}`}
+              fill
+              sizes="(max-width: 720px) 92vw, (max-width: 1140px) 46vw, 520px"
+              className={styles.imagem}
+              priority={prioridade}
+            />
+          </div>
+        </button>
       ) : (
         <div className={styles.par}>
           <Painel
             rotulo="Antes"
             src={resultado.antes}
             alt={`Antes do tratamento. ${descricao}`}
-            estilo={moldura}
             prioridade={prioridade}
+            onAmpliar={() => onAmpliar(0)}
           />
           <Painel
             rotulo="Depois"
             src={resultado.depois}
             alt={`Depois do tratamento. ${descricao}`}
-            estilo={moldura}
             prioridade={prioridade}
+            onAmpliar={() => onAmpliar(1)}
             destaque
           />
         </div>
@@ -80,15 +91,15 @@ function Painel({
   rotulo,
   src,
   alt,
-  estilo,
   prioridade,
+  onAmpliar,
   destaque = false,
 }: {
   rotulo: string
   src: string
   alt: string
-  estilo: CSSProperties
   prioridade: boolean
+  onAmpliar: () => void
   destaque?: boolean
 }) {
   return (
@@ -96,16 +107,23 @@ function Painel({
       <span className={`${styles.rotulo} ${destaque ? styles.rotuloDestaque : ''}`}>
         {rotulo}
       </span>
-      <div className={styles.moldura} style={estilo}>
-        <ImagemComFallback
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 720px) 46vw, (max-width: 1140px) 23vw, 260px"
-          className={styles.imagem}
-          priority={prioridade}
-        />
-      </div>
+      <button
+        type="button"
+        className={styles.botaoFoto}
+        onClick={onAmpliar}
+        aria-label={`Ampliar foto: ${rotulo.toLowerCase()} do tratamento`}
+      >
+        <div className={styles.moldura}>
+          <ImagemComFallback
+            src={src}
+            alt={alt}
+            fill
+            sizes="(max-width: 720px) 46vw, (max-width: 1140px) 23vw, 260px"
+            className={styles.imagem}
+            priority={prioridade}
+          />
+        </div>
+      </button>
     </div>
   )
 }

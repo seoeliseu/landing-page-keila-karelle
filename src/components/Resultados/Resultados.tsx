@@ -1,4 +1,4 @@
-import CardAntesDepois from '@/components/CardAntesDepois/CardAntesDepois'
+import GaleriaResultados from './GaleriaResultados'
 import { resultados } from '@/data/resultados'
 import styles from './Resultados.module.css'
 
@@ -19,22 +19,14 @@ export default function Resultados() {
             A transformação que <em className={styles.enfase}>fala por si</em>
           </h2>
           <p className={styles.subtitulo}>
-            Cada pele responde no seu tempo. Estes são registros de clientes que
-            seguiram o protocolo até o fim — sem filtro e sem edição.
+            Cada pele tem seu próprio tempo de resposta. Os resultados abaixo são de
+            clientes que seguiram o protocolo completo — sem filtros, sem edição e
+            com autorização para divulgação.
           </p>
         </div>
 
         {resultados.length > 0 ? (
-          <div className={styles.grade}>
-            {resultados.map((resultado, indice) => (
-              <CardAntesDepois
-                key={resultado.id}
-                resultado={resultado}
-                /* Só o primeiro sai do lazy loading, para não atrasar o LCP. */
-                prioridade={indice === 0}
-              />
-            ))}
-          </div>
+          <GaleriaResultados resultados={resultados} />
         ) : (
           /* Estado vazio: a página nunca fica quebrada, mesmo sem fotos. */
           <p className={styles.vazio}>
@@ -43,9 +35,8 @@ export default function Resultados() {
         )}
 
         <p className={styles.aviso}>
-          Imagens publicadas com autorização das clientes. Os resultados variam
-          conforme o tipo de estria, o tempo de surgimento e a resposta individual
-          de cada pele.
+          Os resultados variam de acordo com o tipo de estria, o tempo de
+          surgimento e a resposta individual da pele.
         </p>
       </div>
     </section>

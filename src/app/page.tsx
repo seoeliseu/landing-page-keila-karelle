@@ -1,5 +1,6 @@
 import BotaoWhatsapp from '@/components/BotaoWhatsapp/BotaoWhatsapp'
 import CtaFinal from '@/components/CtaFinal/CtaFinal'
+import Depoimentos from '@/components/Depoimentos/Depoimentos'
 import Footer from '@/components/Footer/Footer'
 import Hero from '@/components/Hero/Hero'
 import Localizacao from '@/components/Localizacao/Localizacao'
@@ -22,6 +23,8 @@ export default function Home() {
       <Hero />
       <main>
         <Resultados />
+        {/* Prova social logo depois da prova visual. */}
+        <Depoimentos />
         <Sobre />
         {/* Endereço antes do fechamento: ter local físico gera confiança,
             e a confiança é o que faz o CTA seguinte funcionar. */}

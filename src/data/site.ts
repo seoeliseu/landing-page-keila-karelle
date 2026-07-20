@@ -32,25 +32,24 @@ export const site = {
    * Alimenta a seção "Onde nos encontrar" e os dados estruturados do Google.
    */
   endereco: {
-    rua: 'R. CP-27, 19',
-    bairro: 'Res. Celina Park',
+    /** Nome do espaço onde acontece o atendimento. */
+    local: 'Espaço Renovar',
+    rua: 'Avenida Boulevard Conde dos Arcos, Sala 03',
+    bairro: 'Setor Goiânia 2',
     cidadeUf: 'Goiânia – GO',
-    cep: '74020-045',
+    cep: '74663-130',
     /** Linha única, usada no link do mapa e nos dados estruturados. */
-    completo: 'R. CP-27, 19 - Res. Celina Park, Goiânia - GO, 74020-045',
-    /**
-     * ⚠️ NÃO INVENTEI O HORÁRIO — o Google só mostrava "abre seg. às 09:00".
-     * Troque pelo horário real, ex.: 'Seg a sex, 09h às 18h'.
-     */
+    completo:
+      'Espaço Renovar - Avenida Boulevard Conde dos Arcos, Sala 03, Setor Goiânia 2, Goiânia - GO, 74663-130',
     horario: 'Atendimento com hora marcada',
   },
 
   /** Aparece como tira discreta abaixo do botão principal. */
   especialidades: [
-    'Método Regenerativo',
-    'Microderme',
+    'Método Regenerativo Microderme',
     'Micro Labial Natural',
-    'Hydra Collor',
+    'Hydra Color',
+    'Reconstrução de Fios Naturais',
   ],
 
   /** Usado no <title>, na descrição do Google e no card de compartilhamento. */

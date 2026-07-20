@@ -1,0 +1,115 @@
+/* ── Galeria em tela cheia (carrossel) ─────────────────────── */
+
+.galeria {
+  /*
+    Ocupa a tela inteira e centraliza o conteúdo por flex. O reset global
+    zera o `margin: auto` padrão do <dialog>, então sem isto ele encostava
+    no canto esquerdo.
+  */
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.galeria[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galeria::backdrop {
+  background: rgba(12, 10, 9, 0.92);
+  backdrop-filter: blur(3px);
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.imagem {
+  display: block;
+  /* Espaço lateral para as setas não cobrirem a foto. */
+  max-width: min(84vw, 1000px);
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.legenda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  max-width: min(84vw, 44rem);
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contador {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--dourado-claro);
+}
+
+/* ── Controles ─────────────────────────────────────────────── */
+
+.seta,
+.fechar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(20, 18, 17, 0.6);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--transicao);
+}
+
+.seta:hover,
+.fechar:hover {
+  background: rgba(20, 18, 17, 0.9);
+}
+
+.seta {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  font-size: 1.75rem;
+  line-height: 1;
+  /* Sobe o glifo ‹ › para o centro óptico do círculo. */
+  padding-bottom: 0.2rem;
+}
+
+.setaEsquerda {
+  left: clamp(0.4rem, 2vw, 1.5rem);
+}
+
+.setaDireita {
+  right: clamp(0.4rem, 2vw, 1.5rem);
+}
+
+.fechar {
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  line-height: 1;
+}

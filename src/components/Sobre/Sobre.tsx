@@ -13,17 +13,17 @@ const PILARES = [
   {
     titulo: 'Avaliação individual',
     texto:
-      'Antes de qualquer procedimento, uma conversa: histórico, tipo de estria e expectativa real.',
+      'Antes de qualquer procedimento, conversamos sobre seu histórico, analisamos sua pele e entendemos suas expectativas para indicar o melhor caminho.',
   },
   {
     titulo: 'Protocolo personalizado',
     texto:
-      'Estria branca e estria vermelha pedem caminhos diferentes. Nada de pacote de prateleira.',
+      'Cada tipo de estria exige uma estratégia diferente. Por isso, seu tratamento é desenvolvido exclusivamente para as necessidades da sua pele.',
   },
   {
-    titulo: 'Acompanhamento próximo',
+    titulo: 'Acompanhamento da evolução',
     texto:
-      'Registro da evolução sessão a sessão, para você enxergar o progresso mesmo quando ele é gradual.',
+      'Registramos sua evolução ao longo das sessões para que você acompanhe cada etapa da transformação com segurança.',
   },
 ]
 
@@ -35,39 +35,52 @@ export default function Sobre() {
           <p className={styles.rotulo}>Quem cuida de você</p>
 
           <h2 className={styles.titulo}>
-            Estria não é questão de vaidade. É a sua relação com o{' '}
-            <em className={styles.enfase}>próprio corpo</em>.
+            Mais do que tratar estrias, devolver a confiança de mostrar a{' '}
+            <em className={styles.enfase}>própria pele</em>.
           </h2>
 
           <div className={styles.corpo}>
             <p>
-              Sou {site.nome}, especialista em tratamento de estrias em Goiânia. Me
-              aprofundei nesse tema ao perceber quantas mulheres deixavam de usar o
-              que queriam, de ir à praia, de se olhar no espelho sem procurar defeito.
+              Sou {site.nome}, especialista em tratamento de estrias em Goiânia.
             </p>
             <p>
-              Trabalho com <strong>Método Regenerativo</strong> e{' '}
-              <strong>Microderme</strong>: protocolos que estimulam a pele a se
-              reconstruir, atenuando estrias brancas e vermelhas de forma progressiva
-              e segura. Também atendo <strong>Micro Labial Natural</strong> e{' '}
-              <strong>Hydra Collor</strong>.
+              Ao longo da minha trajetória, percebi que as estrias raramente
+              incomodam apenas pela aparência. Elas fazem muitas mulheres deixarem de
+              usar uma roupa, evitarem uma foto, um momento na praia ou até mesmo um
+              olhar mais gentil para o próprio corpo.
+            </p>
+            <p>Foi por isso que escolhi me especializar na regeneração da pele.</p>
+            <p>
+              Trabalho com o <strong>Método Regenerativo Microderme</strong>, um
+              protocolo que estimula a recuperação natural da pele de forma
+              progressiva, respeitando as características e o tempo de cada
+              organismo.
             </p>
             <p>
-              Cada atendimento começa por uma avaliação. Eu olho a sua pele, entendo o
-              seu histórico e monto o caminho para o seu caso — com honestidade sobre
-              o que dá para alcançar.
+              Além do tratamento de estrias, também atuo com{' '}
+              <strong>Micro Labial Natural</strong>, <strong>Hydra Color</strong> e{' '}
+              <strong>reconstrução de fios naturais</strong>.
+            </p>
+            <p>
+              Aqui, cada atendimento começa com uma avaliação detalhada. Meu
+              compromisso é entender sua pele, explicar o que realmente pode ser
+              alcançado e construir um plano personalizado para o seu caso, sempre
+              com transparência e honestidade.
             </p>
           </div>
         </div>
 
-        <ul className={styles.pilares}>
-          {PILARES.map((pilar) => (
-            <li key={pilar.titulo} className={styles.pilar}>
-              <h3 className={styles.pilarTitulo}>{pilar.titulo}</h3>
-              <p className={styles.pilarTexto}>{pilar.texto}</p>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <p className={styles.rotulo}>Como funciona seu atendimento</p>
+          <ul className={styles.pilares}>
+            {PILARES.map((pilar) => (
+              <li key={pilar.titulo} className={styles.pilar}>
+                <h3 className={styles.pilarTitulo}>{pilar.titulo}</h3>
+                <p className={styles.pilarTexto}>{pilar.texto}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
