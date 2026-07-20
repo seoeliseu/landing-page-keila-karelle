@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <!--
     Monograma KK — Keila Karelle.
-    Dois K entrelaçados: a haste do segundo nasce onde os braços do primeiro
-    terminam. Dourado (#c8a96a) e dourado-claro (#dfc691) sobre o preto do
-    site, com fio dourado discreto na borda.
+    Serif itálico, estilo assinatura (padrão das capas de destaque do
+    Instagram): dois K sobrepostos em dourado e dourado-claro sobre o preto
+    do site, com fio dourado discreto na borda.
   -->
   <rect width="64" height="64" rx="14" fill="#141211"/>
   <rect x="2.5" y="2.5" width="59" height="59" rx="12" fill="none" stroke="#c8a96a" stroke-opacity="0.35"/>
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.6">
-    <path d="M21.5 19v26M32.5 20 21.5 32l11 12" stroke="#c8a96a"/>
-    <path d="M32.5 19v26M43.5 20 32.5 32l11 12" stroke="#dfc691"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="40">
+    <text x="12" y="46" fill="#c8a96a">K</text>
+    <text x="27" y="46" fill="#dfc691">K</text>
   </g>
 </svg>
